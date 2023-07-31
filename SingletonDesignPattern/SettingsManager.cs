@@ -8,10 +8,16 @@ namespace SingletonDesignPattern
 {
     public class SettingsManager
     {
-        // Static variable to hold the Singleton instance
+        private SettingsManager()
+        {
+            // Özel kurucu metot, dışarıdan erişimi engellemek için private yapıldı
+            Language = "English";
+            SoundLevel = 50;
+        }
+        // Singleton örneğini tutacak statik değişken
         private static SettingsManager instance;
 
-        // Static property to access the Singleton instance
+        // Örneğe erişmek için kullanılacak statik metot
         public static SettingsManager Instance
         {
             get
@@ -30,12 +36,7 @@ namespace SingletonDesignPattern
         public int SoundLevel { get; set; }
 
         // Private constructor to prevent external instantiation
-        private SettingsManager()
-        {
-            // Perform any initialization here when the instance is created
-            Language = "English";
-            SoundLevel = 50;
-        }
+        
 
         public void ShowSettings()
         {
